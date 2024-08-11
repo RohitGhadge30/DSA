@@ -1,0 +1,93 @@
+public class Const{
+
+ public static void main(String[] args) {
+
+   Student s1=new Student();
+   // Student s2=new Student("rohit",12);
+    
+    // System.out.println(s2.name);
+    // System.out.println(s2.roll);
+
+    s1.name="rohit";
+    s1.roll=12;
+    s1.password=1234;
+    
+    s1.marks[0]=80;
+    s1.marks[1]=100;
+    
+
+    Student s2=new Student(s1);
+    s2.password=678;
+    s1.marks[1]=220;  //updating s2 marks 
+    
+
+  //  System.out.print(s2.password);   //copied
+
+    for(int i=0;i<3;i++)
+    {
+       System.out.println(s2.marks[i]);
+    }
+
+
+    
+    
+ }
+
+}
+
+class Student {
+    String name;
+     int password;
+    int roll;
+    int marks[];
+
+// shallow copy const change the value of marks 
+
+    Student(Student s1)
+    {
+        marks = new int[3];
+        this.name=s1.name;
+        this.roll=s1.roll;
+        this.password=s1.password;
+        this.marks=s1.marks;
+    }
+
+    //deep copy const do not change the value of marks
+
+    // Student(Student s1)
+    //  {
+    //      marks = new int[3];
+    //      this.name=s1.name;
+    //     this.roll=s1.roll;
+    //     this.password=s1.password;
+    //     for(int i=0;i<3;i++)
+    //     {
+    //         this.marks[i]=s1.marks[i];
+    //     }
+    
+    // }
+
+
+
+    
+    //non parameterized const
+
+    Student()
+    {
+        marks = new int[3];
+        System.out.println("const called");
+
+    }
+
+    //parameterized
+
+    Student(String name,int roll)
+    {
+        marks = new int[3];
+       this.name=name;
+       this.roll=roll;
+    }
+
+   
+
+}
